@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  producto: one
+  expiration_date: 2016-10-31 21:32:04
+  download: 1
+  download_limit: 1
+  custon_id: MyString
+
+two:
+  producto: two
+  expiration_date: 2016-10-31 21:32:04
+  download: 1
+  download_limit: 1
+  custon_id: MyString

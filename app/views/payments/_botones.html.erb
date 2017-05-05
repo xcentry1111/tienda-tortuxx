@@ -1,0 +1,18 @@
+
+
+<div class="row">
+	<div class="col-sm-4 col-md-3 inline-block">
+	<%= button_to "/pagar", method: :post, class: "btn btn-lg btn-danger" do %>
+		Pagar 
+		<%= image_tag "carrito.png", size: "20x20" %>
+	<% end -%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-4 col-md-3 inline-block">
+	<%= content_tag :button,  class: "btn btn-lg btn-success" do %>
+		Pagar con tarjeta 
+		<%= image_tag "carrito.png", size: "20x20" %>
+	<% end -%>
+	</div>
+</div>

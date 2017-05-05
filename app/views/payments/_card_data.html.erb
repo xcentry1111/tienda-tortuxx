@@ -1,0 +1,44 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Pagar con Tarjeta</h4>
+      </div>
+      <%= form_tag "/payments/cards", method: :post do %>
+      <div class="modal-body">
+        <div class="from-group">
+        <%= email_field_tag :email, nil, class: "form-control floating-label", placeholder: "Correo Electornico", require: "required"%>
+        </div>
+        <div class="from-group">
+        <%= text_field_tag :number, nil, class: "form-control floating-label", placeholder: "Numero de la tarjeta", require: "required"%>
+        </div>
+        <div class="from-group">
+        <p class="be-small">Fecha de Expiracion de la tarjeta</p>
+          <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 no-padding inline-block">
+            <%= select_tag :expire_month, option_for_select: (1..12).to_a, class: "form-control"%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 no-padding inline-block">
+            <%= select_tag :expire_year, option_for_select:(2016..2022).to_a, class: "form-control"%>
+            </div>
+          </div>
+        </div>
+        <div class="from-group">
+        <%= number_field_tag :cvv2, nil, class: "form-control floating-label", placeholder: "CVV REVERSO D ELA TARJETA", require: "required"%>
+        </div>
+        <p class="green-text">Los datos de la tarjeta no son almacenados</p>
+      </div>
+      <div class="modal-footer">
+        <%= content_tag :button, type: :submit, class: "btn btn-primary" do %>
+            Pagar
+        <% end -%>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      <% end -%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<%= form_for (@attachment) do |f|%>
+  <% if @attachment.errors.any? %>
+    <div id="error_explanation", class= "alert alert-danger">
+      <h2><%= pluralize(@attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
+
+      <ul>
+      <% @attachment.errors.full_messages.each do |message| %>
+        <li><strong><%= message %></strong></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container">
+  <div class="form-group">
+	  <%= f.hidden_field :producto_id, value: producto_id%>
+	</div>
+	
+	<div class="form-group">
+	  <label >Descripción</label><br/>
+		  <div class="col-md-4">
+			  <div class="input-group">
+			  <span class="input-group-addon"><i class="glyphicon fa fa-tv"></i></span>
+			  <%= f.text_field :descripcion,  class: "form-control"%>
+			  </div>
+		  </div>
+	</div><br/><br/>
+
+	<div class="form-group">
+	  <label >Cargar Archivo</label>
+	  <%= f.file_field :archivo%>
+	</div>
+	
+
+	<div class="form-group"> 
+	    <div class="input-group">
+	      <%= f.submit "Guardar" ,class: "btn btn-primary btn-xl page-scroll"%>
+	    </div>
+	</div>
+</div>
+  
+<% end %>

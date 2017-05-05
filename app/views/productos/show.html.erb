@@ -1,0 +1,109 @@
+
+---
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header grey-text bold"><%= @producto.nombre%>
+                    <small><%= @producto.user.email rescue nil%></small>
+                </h2>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                  <%= image_tag @producto.imagen.url(:medium)%>
+            </div>
+
+            <div class="col-md-4">
+                <h3><strong>Descripción del Producto</strong></h3>
+                <p align="justify"><%= @producto.descripcion rescue nil%></p>
+                <h3><strong>Detalles del Producto</strong></h3>
+                <ul>
+                    <li><strong>Precio:</strong> <%=  "$#{@producto.precio}" rescue nil%></li>
+                    <li><strong>Descuento:</strong> </li>
+                    <li><%= render "in_shopping_carts/form", producto: @producto%></li>
+                    <li>Adipiscing Elit</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-8">
+                <h3 class="page-header"><strong>Forma de entrega</strong></h3>
+            </div>
+
+            <div class="col-sm-8 col-xs-6">
+                <p align="justify">Este MBA - Máster tiene como objetivo aportar una visión estratégica y global de un directivo así como el completo conocimiento acerca de varios departamentos de una empresa, como Recursos Humanos, Finanzas, Operaciones, Marketing, Ventas y Comercio. Para poder acceder a este MBA, se necesita Estar en posesión de un título de Grado en Arquitectura, Ingeniería Superior o Técnica, Licenciatura, Diplomatura u otro título equivalente. </p>
+                <div class="col-sm-6 col-xs-6">
+                 <ul>
+                    <li><strong>Precio:</strong> <%=  "$#{@producto.precio}" rescue nil%></li>
+                    <li><strong>Descuento:</strong> </li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                <ul>
+                    <li><strong>Precio:</strong> <%=  "$#{@producto.precio}" rescue nil%></li>
+                    <li><strong>Descuento:</strong> </li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul>
+                </div>
+
+            </div>
+
+            
+             <div class="col-sm-4 col-xs-6">
+
+                <p align="justify">Este MBA - Máster tiene como objetivo aportar una visión estratégica y global de un directivo así como el completo conocimiento acerca de varios departamentos de una empresa, como Recursos Humanos, Finanzas, Operaciones, Marketing, Ventas y Comercio. Para poder acceder a este MBA, se necesita Estar en posesión de un título de Grado en Arquitectura, Ingeniería Superior o Técnica, Licenciatura, Diplomatura u otro título equivalente. </p>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header"><strong>Related Projects</strong></h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+ 
+
+    </div>

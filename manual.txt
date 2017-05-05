@@ -1,0 +1,116 @@
+************************************  Configurar correos en Development ****************************
+************************************************************************************************
+milenium/Gemfile
+
+Agregar Gema: gem 'letter_opener'
+
+
+group :development, :test do
+  gem 'letter_opener'  # Gema que se encarga de interseptar los correos y que se puedan abrir en el 
+   navegador, esta gema no se instala porque se coloco  en el bloque de development, en caso de que se quiera 
+   instalar en el modo de production se instala en la parte de arriba.
+   => Se debe de configurar en el config y en development
+   => config.action_mailer.delivery_method = :letter_opener
+   => En la carpeta de mailer se debe de crear archivos, para la configuracion de los correos
+end
+
+--------------
+
+config/environments/development
+
+config.action_mailer.delivery_method = :letter_opener
+
+--------------
+
+app/mailer
+
+Crear mailer en la vista
+
+class LinkMailer < ActionMailer::Base
+	default from: "torttuxx@gmail.com" #es desde donde se van a enviar los correos
+	layout false
+	def download_link(link) 
+		@link = link # guarda los link en una variable de clase para mostrarlo en otra vista
+		@producto = link.producto
+		mail(to: link.email,subject:"Descarga los productos que adquiriste en torttuxx.com")
+		# link.email  =>  es al correo que se va a enviar que compro el producto
+		# to: =>  ya tiene el correo desde donde se va a enviar el correo
+		# Nota: se debe de crar una vista con el mismo metodo download_link
+	end
+end
+
+--------------
+
+app/views/link_mailer
+
+crear templay o vista de como va hacer la visualizacion del correo, debe ser igual a metodo nombrado desde el modelo
+
+nombre de la vista:     download_link.html.erb
+
+
+--------------
+ en el modelo de link, se coloca el metodo de envio
+
+ after_create :send_email
+	
+	def send_email #metodo que se encarga de enviar el correo
+  		LinkMailer.download_link(self).deliver_now
+      #Clase LinkMailer y la accion download_link para le envio
+  	end
+
+
+************************************  Configurar correos en gmail ********************************
+************************************************************************************************
+
+En config/initializers
+
+Crear archivo setup_mail.rb  ,, se puede llamar como quiera
+
+--------------
+
+Dentro del archivo se debe de configurar la cuenta del servidor de envio
+
+ActionMailer::Base.smtp_settings = {
+	address: "smtp.gmail.com",
+	port: 587,
+	domain: "gmail.com",
+	user_name: "a@gmail.com",
+	password: "asdasdas",
+	authentication: :login,
+	enable_starttls_auto: true
+}
+
+--------------
+
+en la vista del mailer, del envio de correo se puede colocar una plantilla responsive email
+
+https://codepen.io/urielhdz/pen/MKVXbZ
+
+que se puede descagar de la antior pagina
+
+
+
+
+************************************  Para descargar productos ********************************
+************************************************************************************************
+
+
+en el routes se crean las siguientes rutas
+
+get "/descargar/:id", to:"links#download"
+get "/descargar/:id/archivo/:attachment_id", to:"links#download_attachment", as: :download_attachment
+
+
+--------------
+
+crear el Links_controllers
+
+
+************************************  Imagen 2 ********************************
+************************************************************************************************
+
+rails generate paperclip Producto imagen2
+rails generate paperclip Producto imagen3
+rails generate paperclip Producto imagen4
+
+

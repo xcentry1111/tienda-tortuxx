@@ -1,0 +1,11 @@
+<table>
+	<tr>
+		<td>Compras</td>
+	</tr>
+	<% @compras.each do |compra|%>
+	<tr>
+		<td><%= compra.producto.nombre %></td>
+		<td><%= compra.id %></td>
+	</tr>
+	<% end -%>
+</table>

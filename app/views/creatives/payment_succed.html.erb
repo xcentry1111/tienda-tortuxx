@@ -1,0 +1,25 @@
+
+<div class="col-md-10 center-block no-float">
+	 <div class="article card large-padding">
+		<h1>Tu pago ha sido procesado</h1>
+		<p> Hemos enviado a tu correo los links de descarga del producto que acabas de adquirir</p>
+		<div class="section big-top-space">
+			<h2> Resumen de tu pedido</h2>
+			<table class="table table-striped table-hover medium#table_shopping_cart">
+				<thead>
+					<td> Producto </td>
+					<td> Costo</td>
+				</thead>
+				<tbody>
+					<%= @shopping_cart.in_shopping_carts.each do |producto|%>
+						<tr>
+							<td><%= producto.nombre rescue nil%></td>
+							<td><%= producto.precio rescue nil%></td>
+							<td>Eliminar</td>
+						</tr>
+						<% end -%>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>

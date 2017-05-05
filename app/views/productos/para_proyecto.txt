@@ -1,0 +1,53 @@
+************ Portal para empresa y demas **************
+
+<div class="row">
+  <div class="col-md-3 col-lg-3">
+    <div class="list-group">
+      <a class="list-group-item" href="/users/edit"><i class="fa fa-user fa-2x btn-lg"></i>
+      Información Basica
+      </a>
+      <a class="list-group-item" href="/companies"><i class="fa fa-building fa-2x btn-lg"></i>
+      Mis Empresas
+      </a>
+      <a class="list-group-item" href="/contact_requests"><i class="fa fa-phone fa-2x btn-lg"></i>
+      Solicitudes de contacto
+    <!-- %span.badge 4 -->
+      <div class="label-pending-contact-requests pull-right">
+      </div>
+      </a>
+      <a class="list-group-item" href="/favorites"><i class="fa fa-heart fa-2x btn-lg"></i>
+        Favoritos
+      </a>
+      <a class="list-group-item" href="/notifications"><i class="fa fa-bell btn-lg"></i>
+        Notificaciones
+      </a>
+  </div>
+    </div>
+    <div class="col-md-9 col-lg-9">
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+    <b>Mis empresas</b>
+    <div class="pull-right">
+    <a class="btn btn-default" href="/carousel_promotions"><i class="fa fa-image fa-1x"></i>
+    Slider de promociones
+    </a></div>
+    </div>
+    <div class="panel-body">
+    <div class="jumbotron text-center">
+    <img src="/assets/transport-7b2b5097ab4de20d9a100b1c6150ef5412ffef3966224d4c95408b81cf1f4cf4.png" alt="Transport">
+    <h2>Crea tu primera empresa</h2>
+    </div>
+    </div>
+    <div class="panel-footer">
+    <a class="btn btn-sm btn-primary" href="/companies/new">Nueva empresa</a>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+
+******************* Navbar ***********
+
+ 

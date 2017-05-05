@@ -1,0 +1,74 @@
+
+<%= form_for (@producto)do |f| %>
+  <% if @producto.errors.any? %>
+    <div id="error_explanation", class= "alert alert-danger">
+      <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+
+      <ul>
+      <% @producto.errors.full_messages.each do |message| %>
+        <li><strong><%= message %></strong></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="container">
+  <div id="recuadro" class="form-horizontal"> 
+
+<div class="form-group">
+  <label class="col-md-2 control-label">Producto</label>  
+  <div class="col-md-8 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon fa fa-tv"></i></span>
+  <%= f.text_field :nombre, placeholder: "Producto",  class: "form-control"%>
+    </div>
+</div>
+</div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Precio</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon fa fa-money"></i></span>
+    <%= f.text_field :precio,  placeholder: "Precio del Producto", class: "form-control"%>
+      </div>
+  </div>
+</div>
+<div class="form-group">
+    <label class="col-md-2 control-label">Descripción</label>  
+    <div class="col-md-8 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon fa fa-file-text"></i></span>
+    <%= f.text_area :descripcion,  placeholder: "Descripción del Producto",class: "form-control", rows: "5" %>
+      </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-2 control-label">Cargar Imagen 1</label> 
+  <%= f.file_field :imagen%>
+</div>
+<div class="form-group">
+  <label class="col-md-2 control-label">Cargar Imagen 2</label> 
+  <%= f.file_field :imagen2%>
+</div>
+<div class="form-group">
+  <label class="col-md-2 control-label">Cargar Imagen 3</label> 
+  <%= f.file_field :imagen3%>
+</div>
+<div class="form-group">
+  <label class="col-md-2 control-label">Cargar Imagen 4</label> 
+  <%= f.file_field :imagen4%>
+</div>
+<div class="form-group"> 
+    <div class="col-md-12 inputGroupContainer">
+    <div class="input-group">
+      <%= f.submit "Guardar" ,class: "btn btn-primary btn-xl page-scroll"%>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+  
+<% end %>
+
+

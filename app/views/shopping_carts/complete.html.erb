@@ -1,0 +1,30 @@
+<div class="row">
+		<div class="top-space ">
+			<h1>Gracis por adquirir el producto</h1>
+		</div>
+	<div class="col-md-12" id="recuadro">
+		<table class="table table-striped" width="100%">
+				<tr>
+					<th width="10%">Producto</th>
+					<th width="50%">Descripcion</th>
+					<th width="30%">Costo</th>
+					<th width="10%">Acciones</th>
+				</tr>
+			<% @shopping_cart.in_shopping_carts.each do |shopping|
+				producto = shopping.producto %>
+				<tr>
+					<td><%= image_tag producto.imagen.url(:thumb)%></td>
+					<td><%= producto.nombre rescue nil%></td>
+					<td><%= producto.precio rescue nil%></td>
+					<td>Eliminar</td>
+				</tr>
+			<% end -%>	
+		
+		</table>
+		<div class="top-space text-center">
+			<p class="medium"><strong>Total $<%= @shopping_cart.total rescue nil%></strong></p>
+		</div>
+
+	</div>
+</div>
+
